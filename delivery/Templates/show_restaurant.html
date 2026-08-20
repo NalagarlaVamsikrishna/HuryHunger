@@ -22,16 +22,16 @@
             <tr>
                 <td>{{ r.name }}</td>
                 <td>
-                    <img src="{{ r.picture }}">
+                    <img src="{{ r.picture }}" alt="picture of {{ r.name }}" width="100">
                 </td>
                 <td>{{ r.cuisine }}</td>
                 <td>{{ r.rating }}</td>
                 <td>
-                    <a href="#">
+                    <a href="{% url 'open_update_restaurant' r.id %}">
                         Updated Restaurant Info
                     </a> 
                     <br>
-                    <a href="#">
+                    <a href="{% url 'delete_restaurant' r.id %}">
                         Delete Restaurant
                     </a> 
                     <br>
