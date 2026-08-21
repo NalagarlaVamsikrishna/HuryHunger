@@ -1,7 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from .models import Customer, Restaurant
+from .models import Customer, Restaurant, Item
 
 # Create your views here.
 def say_hello(request):
@@ -101,3 +101,31 @@ def delete_restaurant(request, restaurant_id):
 
     restaurantList = Restaurant.objects.all()
     return render(request, 'show_restaurant.html', {"restaurantList" : restaurantList})
+
+def open_update_menu(request, restaurant_id):
+    restaurant = Restaurant.objects.get(id = restaurant_id)
+    itemList = restaurant.items.all()
+    return render(request, 'update_menu.html', {"itemList" : itemList, "restaurant":restaurant})
+
+def update_menu(request, restaurant_id):
+    restaurant = Restaurant.objects.get(id = restaurant_id)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        price = request.POST.get('price')
+        vegeterian = request.POST.get('vegeterian') == 'on'
+        picture = request.POST.get('picture')
+
+        try:
+            Item.objects.get(name = name)
+            return HttpResponse("Duplicate item!")
+        except:
+            Item.objects.create(
+                restaurant = restaurant,
+                name = name,
+                description = description,
+                price = price,
+                vegeterian = vegeterian,
+                picture = picture,
+            )
+    return redirect('open_show_restaurant')

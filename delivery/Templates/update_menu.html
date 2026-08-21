@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Menu</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Item name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Is Veg</th>
+                <th>Picture</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in itemList %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.vegeterian }}</td>
+                    <td>
+                        <img src="{{ item.picture }}">
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Add Menu Item</h2>
+    <form action="{% url 'update_menu' restaurant.id %}" method="POST">
+        {% csrf_token %}
+        <label for="name">Item Name: </label>
+        <input type="text" name="name" id="name"> <br>
+
+        <label for="description">Description: </label>
+        <textarea name="description" id="description"></textarea> <br>
+
+        <label for="price">Price: </label>
+        <input type="number" name="price" id="price"> <br>
+
+        <label for="vegeterian">Vegeterian: </label>
+        <input type="checkbox" name="vegeterian" id="vegeterian"> <br>
+
+        <label for="picture">Image URL: </label>
+        <input type="url" name="picture" id="picture"> <br>
+
+        <button type="submit">Add Item</button>
+
+    </form>
+</body>
+</html>
