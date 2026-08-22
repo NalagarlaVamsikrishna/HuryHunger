@@ -15,11 +15,16 @@ class Restaurant(models.Model):
     rating = models.FloatField()
 
 class Item(models.Model):
-    restaurant = models.ForeignKey(Restaurant, on_delete = models.CASCADE, related_name = "items")
+    restaurant = models.ForeignKey(Restaurant, on_delete = models.CASCADE, related_name = 'items')
     name = models.CharField(max_length=20)
     description = models.CharField(max_length=200)
     price = models.FloatField()
     vegeterian = models.BooleanField(default=False)
     picture = models.URLField(max_length=400, default='https://www.google.com/imgres?q=biryani&imgurl=https%3A%2F%2Fministryofcurry.com%2Fwp-content%2Fuploads%2F2024%2F06%2Fchicken-biryani-5-500x500.jpg&imgrefurl=https%3A%2F%2Fministryofcurry.com%2Fchicken-biryani%2F&docid=tKGBMlcvTWsu1M&tbnid=RXZqyM2A-_EYzM&vet=12ahUKEwiDwNP6sq-WAxVVT2wGHcnlInUQnPAOegQINhAA..i&w=500&h=500&hcb=2&ved=2ahUKEwiDwNP6sq-WAxVVT2wGHcnlInUQnPAOegQINhAA')
 
-    
+class Cart(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="cart")
+    items = models.ManyToManyField("Item", related_name= 'carts')
+
+    def total_price(self):
+        return sum(item.price for item in self.items.all())

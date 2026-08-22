@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from .models import Customer, Restaurant, Item
+from .models import Cart, Customer, Restaurant, Item
 
 # Create your views here.
 def say_hello(request):
@@ -44,7 +44,8 @@ def signin(request):
         if username == 'admin':
             return render(request, 'admin_home.html')
         else:
-            return render(request, 'customer_home.html')
+            restaurantList = Restaurant.objects.all()
+            return render(request, 'customer_home.html', {"restaurantList": restaurantList, "username": username})
         
     except Customer.DoesNotExist:
         return render(request, 'fail.html')
@@ -129,3 +130,20 @@ def update_menu(request, restaurant_id):
                 picture = picture,
             )
     return redirect('open_show_restaurant')
+
+def view_menu(request, restaurant_id, username):
+    restaurant = Restaurant.objects.get(id = restaurant_id)
+    itemList = restaurant.items.all()
+
+    return render(request, 'view_menu.html', 
+        {"itemList" : itemList,
+        "restaurant" : restaurant,
+        "username" : username})
+
+def add_to_cart(request, item_id, username):
+    item = Item.objects.get(id = item_id)
+    customer = Customer.objects.get(username = username)
+
+    cart, created = Cart.objects.get_or_create(customer = customer)
+    cart.items.add(item)
+    return HttpResponse('added to cart')

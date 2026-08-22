@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+</head>
+<body>
+    <h3>Hyy Your items here</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in itemList %}
+            <tr>
+                <td>
+                    <img src="{{ i.picture }}" alt="">
+                </td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.description }}</td>
+                <td>{{ i.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
