@@ -7,6 +7,8 @@
 </head>
 <body>
     <h1>Welcome {{username}}</h1>
+    <a href="{% url 'show_cart' username %}">Go to cart</a>
+    
     <table border="1">
         <thead>
             <tr>

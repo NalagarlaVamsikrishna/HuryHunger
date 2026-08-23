@@ -20,7 +20,7 @@
             {% for i in itemList %}
             <tr>
                 <td>
-                    <img src="{{ i.picture }}" alt="">
+                    <img src="{{ i.picture }}" style="width: 150px; height: 150px; object-fit: fill;">
                 </td>
                 <td>{{ i.name }}</td>
                 <td>{{ i.description }}</td>
@@ -28,6 +28,10 @@
             </tr>
             {% endfor %}
         </tbody>
+        <h2>Total price: {{total_price}}</h2>
+        <form action="{% url 'check_out' username %}">
+            <input type="submit" value="CHECK OUT">
+        </form>
     </table>
 </body>
 </html>
