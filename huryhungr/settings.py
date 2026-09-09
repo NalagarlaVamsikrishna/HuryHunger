@@ -60,7 +60,7 @@ ROOT_URLCONF = "huryhungr.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "delivery" / "Templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
