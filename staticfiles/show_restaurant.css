@@ -1,0 +1,295 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+}
+
+/* Navbar */
+
+.navbar {
+    height: 58px;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+}
+
+.brand {
+    font-size: 21px;
+    font-weight: 700;
+    color: #ff5a36;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #ff5a36;
+}
+
+/* Page */
+
+.page-container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 0 40px;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.eyebrow {
+    color: #ff5a36;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    margin: 4px 0;
+}
+
+.page-header p {
+    color: #777;
+    font-size: 13px;
+}
+
+/* Add button */
+
+.add-btn {
+    display: inline-block;
+    background: #ff5a36;
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    background: #e94d2c;
+    transform: translateY(-1px);
+}
+
+/* Table */
+
+.restaurant-table-wrapper {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.restaurant-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.restaurant-table th {
+    background: #fafafa;
+    color: #777;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding: 13px 16px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.restaurant-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid #eeeeee;
+    vertical-align: middle;
+}
+
+.restaurant-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.restaurant-table tbody tr:hover {
+    background: #fffaf8;
+}
+
+/* Restaurant info */
+
+.restaurant-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.restaurant-image {
+    width: 62px;
+    height: 52px;
+    border-radius: 7px;
+    overflow: hidden;
+    background: #f1f1f1;
+    flex-shrink: 0;
+}
+
+.restaurant-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.restaurant-info h3 {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.restaurant-info span {
+    color: #999;
+    font-size: 11px;
+}
+
+/* Cuisine */
+
+.cuisine {
+    display: inline-block;
+    background: #fff1ed;
+    color: #e94d2c;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Rating */
+
+.rating {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Actions */
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    text-decoration: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.edit-btn {
+    background: #fff1ed;
+    color: #e94d2c;
+}
+
+.edit-btn:hover {
+    background: #ff5a36;
+    color: white;
+}
+
+.menu-btn {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.menu-btn:hover {
+    background: #475569;
+    color: white;
+}
+
+.delete-btn {
+    background: #fff0f0;
+    color: #dc3545;
+}
+
+.delete-btn:hover {
+    background: #dc3545;
+    color: white;
+}
+
+/* Empty state */
+
+.empty-state {
+    background: white;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.empty-icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.empty-state h2 {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.empty-state p {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .page-container {
+        width: 94%;
+        padding-top: 20px;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .restaurant-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .restaurant-table {
+        min-width: 700px;
+    }
+}

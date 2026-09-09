@@ -1,0 +1,576 @@
+/* ==============================
+   GOOGLE FONT
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+
+/* ==============================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fffaf5;
+    color: #222;
+}
+
+
+/* ==============================
+   NAVBAR
+================================ */
+
+.navbar {
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #ffffff;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: #222;
+}
+
+
+.logo span {
+    color: #ff5a36;
+}
+
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.login-btn {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+
+    padding: 10px 20px;
+
+    transition: 0.3s;
+}
+
+
+.login-btn:hover {
+    color: #ff5a36;
+}
+
+
+.signup-btn {
+    text-decoration: none;
+
+    background: #ff5a36;
+    color: white;
+
+    padding: 11px 22px;
+
+    border-radius: 25px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.signup-btn:hover {
+    background: #e84320;
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   HERO SECTION
+================================ */
+
+.hero {
+
+    min-height: 600px;
+
+    padding: 80px 10%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 60px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf5,
+            #fff1e8
+        );
+}
+
+
+.hero-content {
+    max-width: 600px;
+}
+
+
+.tag {
+
+    color: #ff5a36;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+
+.hero h1 {
+
+    font-size: 55px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+
+    font-weight: 800;
+
+    color: #222;
+}
+
+
+.hero h1 span {
+    color: #ff5a36;
+}
+
+
+.description {
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #666;
+
+    margin-bottom: 30px;
+
+    max-width: 500px;
+}
+
+
+/* ==============================
+   HERO BUTTONS
+================================ */
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.primary-btn {
+
+    background: #ff5a36;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 8px 20px
+        rgba(255, 90, 54, 0.25);
+}
+
+
+.primary-btn:hover {
+
+    background: #e84320;
+
+    transform: translateY(-3px);
+}
+
+
+.secondary-btn {
+
+    background: white;
+
+    color: #333;
+
+    text-decoration: none;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    border: 1px solid #eee;
+
+    transition: 0.3s;
+}
+
+
+.secondary-btn:hover {
+
+    border-color: #ff5a36;
+
+    color: #ff5a36;
+}
+
+
+/* ==============================
+   FOOD CARD
+================================ */
+
+.food-card {
+
+    width: 330px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.12);
+
+    transition: 0.4s;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+
+.food-card:hover {
+
+    transform: translateY(-10px);
+}
+
+
+.food-icon {
+
+    font-size: 110px;
+
+    margin-bottom: 20px;
+}
+
+
+.food-details h3 {
+
+    font-size: 23px;
+
+    margin-bottom: 8px;
+}
+
+
+.food-details p {
+
+    color: #777;
+
+    margin-bottom: 12px;
+}
+
+
+.rating {
+
+    color: #ffb400;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   FLOAT ANIMATION
+================================ */
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==============================
+   FEATURES
+================================ */
+
+.features {
+
+    padding: 80px 10%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+
+    background: white;
+}
+
+
+.feature-card {
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background: #fffaf5;
+
+    border: 1px solid #f5e5dc;
+
+    transition: 0.3s;
+}
+
+
+.feature-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+.feature-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 18px;
+}
+
+
+.feature-card h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
+    color: #222;
+}
+
+
+.feature-card p {
+
+    color: #777;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   FOOTER
+================================ */
+
+footer {
+
+    background: #222;
+
+    color: white;
+
+    padding: 35px 10%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+.footer-logo {
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+
+.footer-logo span {
+
+    color: #ff5a36;
+}
+
+
+footer p {
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   TABLET RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+    .hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 70px 8%;
+    }
+
+
+    .hero-content {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .hero h1 {
+
+        font-size: 45px;
+    }
+
+
+    .features {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* ==============================
+   MOBILE RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        padding: 18px 5%;
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+    }
+
+
+    .login-btn {
+
+        display: none;
+    }
+
+
+    .signup-btn {
+
+        padding: 9px 16px;
+
+        font-size: 13px;
+    }
+
+
+    .hero {
+
+        padding: 60px 6%;
+    }
+
+
+    .hero h1 {
+
+        font-size: 36px;
+    }
+
+
+    .description {
+
+        font-size: 15px;
+    }
+
+
+    .food-card {
+
+        width: 100%;
+
+        max-width: 330px;
+    }
+
+
+    .features {
+
+        grid-template-columns: 1fr;
+
+        padding: 60px 7%;
+    }
+
+
+    footer {
+
+        justify-content: center;
+
+        text-align: center;
+
+        flex-direction: column;
+    }
+
+}

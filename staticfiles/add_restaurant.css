@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+font-family: Arial, sans-serif;
+background-color: #f8f9fb;
+color: #222;
+min-height: 100vh;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar {
+height: 75px;
+padding: 0 8%;
+background-color: white;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid #eee;
+}
+
+.logo {
+text-decoration: none;
+color: #222;
+font-size: 25px;
+font-weight: bold;
+}
+
+.logo span {
+color: #ff5a36;
+}
+
+.admin-label {
+color: #888;
+font-size: 11px;
+font-weight: bold;
+letter-spacing: 1.5px;
+}
+
+/* =========================
+PAGE
+========================= */
+
+.page-container {
+width: 90%;
+max-width: 850px;
+margin: auto;
+padding: 45px 0 70px;
+}
+
+/* =========================
+HEADER
+========================= */
+
+.page-header {
+margin-bottom: 30px;
+}
+
+.back-link {
+display: inline-block;
+color: #777;
+text-decoration: none;
+font-size: 13px;
+margin-bottom: 25px;
+}
+
+.back-link:hover {
+color: #ff5a36;
+}
+
+.page-tag {
+color: #ff5a36;
+font-size: 11px;
+font-weight: bold;
+letter-spacing: 2px;
+margin-bottom: 10px;
+}
+
+.page-header h1 {
+font-size: 35px;
+margin-bottom: 10px;
+}
+
+.page-header h1 span {
+color: #ff5a36;
+}
+
+.page-header > p:last-child {
+color: #777;
+font-size: 14px;
+}
+
+/* =========================
+FORM CARD
+========================= */
+
+.form-card {
+background-color: white;
+border-radius: 18px;
+padding: 35px;
+border: 1px solid #eee;
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.form-card-header {
+display: flex;
+align-items: center;
+gap: 15px;
+padding-bottom: 25px;
+margin-bottom: 25px;
+border-bottom: 1px solid #eee;
+}
+
+.form-icon {
+width: 55px;
+height: 55px;
+background-color: #fff0eb;
+border-radius: 14px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 25px;
+}
+
+.form-card-header h2 {
+font-size: 21px;
+margin-bottom: 5px;
+}
+
+.form-card-header p {
+color: #888;
+font-size: 12px;
+}
+
+/* =========================
+INPUTS
+========================= */
+
+.input-group {
+margin-bottom: 22px;
+}
+
+.input-group label {
+display: block;
+font-size: 13px;
+font-weight: bold;
+margin-bottom: 8px;
+}
+
+.input-group input {
+width: 100%;
+padding: 14px 15px;
+border: 1px solid #ddd;
+border-radius: 9px;
+outline: none;
+font-size: 14px;
+font-family: Arial, sans-serif;
+transition: 0.3s;
+}
+
+.input-group input:focus {
+border-color: #ff5a36;
+box-shadow: 0 0 0 3px rgba(255, 90, 54, 0.1);
+}
+
+.input-group small {
+display: block;
+margin-top: 7px;
+color: #999;
+font-size: 11px;
+}
+
+/* =========================
+ACTIONS
+========================= */
+
+.form-actions {
+display: flex;
+justify-content: flex-end;
+gap: 12px;
+padding-top: 10px;
+}
+
+.cancel-btn,
+.submit-btn {
+padding: 13px 22px;
+border-radius: 9px;
+font-size: 13px;
+font-weight: bold;
+cursor: pointer;
+text-decoration: none;
+}
+
+.cancel-btn {
+color: #666;
+background-color: #f1f1f1;
+}
+
+.cancel-btn:hover {
+background-color: #e5e5e5;
+}
+
+.submit-btn {
+border: none;
+background-color: #ff5a36;
+color: white;
+transition: 0.3s;
+}
+
+.submit-btn:hover {
+background-color: #e74624;
+transform: translateY(-2px);
+}
+
+/* =========================
+TIP
+========================= */
+
+.tip-box {
+margin-top: 25px;
+padding: 18px 20px;
+background-color: #fff4ef;
+border: 1px solid #ffe0d5;
+border-radius: 13px;
+display: flex;
+gap: 13px;
+}
+
+.tip-icon {
+font-size: 22px;
+}
+
+.tip-box strong {
+font-size: 13px;
+}
+
+.tip-box p {
+margin-top: 5px;
+color: #777;
+font-size: 12px;
+line-height: 1.5;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer {
+background-color: #222;
+color: white;
+padding: 30px 8%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.footer-logo {
+font-size: 20px;
+font-weight: bold;
+}
+
+.footer-logo span {
+color: #ff5a36;
+}
+
+footer p {
+color: #aaa;
+font-size: 12px;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media screen and (max-width: 600px) {
+.navbar {
+    padding: 0 5%;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+.page-container {
+    width: 92%;
+    padding: 35px 0 50px;
+}
+
+.page-header h1 {
+    font-size: 29px;
+}
+
+.form-card {
+    padding: 22px;
+}
+
+.form-actions {
+    flex-direction: column-reverse;
+}
+
+.cancel-btn,
+.submit-btn {
+    width: 100%;
+    text-align: center;
+}
+
+footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+}
+}
