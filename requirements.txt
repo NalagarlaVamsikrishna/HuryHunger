@@ -2,3 +2,5 @@ Django
 gunicorn
 razorpay
 whitenoise
+psycopg[binary]
+dj-database-url
