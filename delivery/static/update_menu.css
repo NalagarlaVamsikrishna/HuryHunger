@@ -1,0 +1,356 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+}
+
+/* Navbar */
+
+.navbar {
+    height: 58px;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+}
+
+.brand {
+    font-size: 21px;
+    font-weight: 700;
+    color: #ff5a36;
+}
+
+.admin-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 0.8px;
+}
+
+/* Page */
+
+.page-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 25px 0 40px;
+}
+
+.page-header {
+    margin-bottom: 18px;
+}
+
+.eyebrow {
+    color: #ff5a36;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.page-header h1 {
+    font-size: 26px;
+    margin: 4px 0;
+}
+
+.page-header p {
+    color: #777;
+    font-size: 13px;
+}
+
+/* Sections */
+
+.menu-section,
+.form-section {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 16px 18px;
+    border-bottom: 1px solid #eeeeee;
+    background: #ffffff;
+}
+
+.section-header h2 {
+    font-size: 17px;
+    margin-bottom: 3px;
+}
+
+.section-header p {
+    color: #999;
+    font-size: 11px;
+}
+
+/* Menu Table */
+
+.menu-table-wrapper {
+    overflow-x: auto;
+}
+
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.menu-table th {
+    background: #fafafa;
+    color: #777;
+    text-align: left;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 11px 14px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.menu-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid #eeeeee;
+    vertical-align: middle;
+}
+
+.menu-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.menu-table tbody tr:hover {
+    background: #fffaf8;
+}
+
+/* Item */
+
+.item-name {
+    font-size: 13px;
+    font-weight: 700;
+    min-width: 120px;
+}
+
+.description {
+    color: #777;
+    font-size: 11px;
+    line-height: 1.4;
+    max-width: 280px;
+}
+
+.price {
+    color: #222;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Food Image */
+
+.food-image {
+    width: 58px;
+    height: 48px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f1f1f1;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Vegetarian */
+
+.veg-badge,
+.nonveg-badge {
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.veg-badge {
+    background: #edf8ef;
+    color: #258b3c;
+}
+
+.nonveg-badge {
+    background: #fff0ed;
+    color: #d94a30;
+}
+
+/* Form */
+
+.menu-form {
+    padding: 18px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    color: #444;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+    background: #fff;
+}
+
+.form-group input {
+    height: 40px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 75px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff5a36;
+    box-shadow: 0 0 0 2px rgba(255, 90, 54, 0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}
+
+/* Vegetarian Option */
+
+.veg-option {
+    display: flex;
+    align-items: center;
+    padding-top: 23px;
+}
+
+.veg-option input {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    accent-color: #258b3c;
+    cursor: pointer;
+}
+
+.veg-option label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+    cursor: pointer;
+}
+
+.veg-dot {
+    color: #258b3c;
+    margin-right: 4px;
+}
+
+/* Button */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #eeeeee;
+    padding-top: 15px;
+    margin-top: 2px;
+}
+
+.add-item-btn {
+    border: none;
+    background: #ff5a36;
+    color: #ffffff;
+    padding: 10px 17px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.add-item-btn:hover {
+    background: #e94d2c;
+}
+
+/* Empty State */
+
+.empty-menu {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.empty-icon {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.empty-menu h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.empty-menu p {
+    color: #888;
+    font-size: 12px;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .page-container {
+        width: 94%;
+        padding-top: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .veg-option {
+        padding-top: 0;
+        margin-bottom: 14px;
+    }
+
+    .form-actions {
+        justify-content: stretch;
+    }
+
+    .add-item-btn {
+        width: 100%;
+    }
+
+    .menu-table {
+        min-width: 750px;
+    }
+}

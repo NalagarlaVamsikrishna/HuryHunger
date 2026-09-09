@@ -177,14 +177,18 @@ def check_out(request, username):
         'payment_capture' : '1',
     }
     try:
-        order = client.order.create(data = order_data)
-    except:
+        order = client.order.create(data=order_data)
+
+    except Exception as e:
+
+        print("RAZORPAY ERROR:", repr(e))
+
         return render(request, 'checkout.html', {
-        'username' : username,
-        'cart_items' : cart_items,
-        'total_price' : total_price,
-        'error' : 'Payment service is currently unreachable. Please check your internet/proxy settings and try again.',
-        })
+        'username': username,
+        'cart_items': cart_items,
+        'total_price': total_price,
+        'error': f'Razorpay Error: {str(e)}',
+    })
     
     return render(request, 'checkout.html', {
         'username' : username,

@@ -1,16 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HuryHungr</title>
+
+    <title>HuryHunger | Food Delivery</title>
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
+
 <body>
-    <h1>HuryHungr - Where you find the good taste!</h1>
-    <br>
-    <a href="open_signup">Sign Up</a><br>
-    <a href="open_signin">Sign in</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+             Hury<span>Hungr</span>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="open_signin" class="login-btn">Sign In</a>
+            <a href="open_signup" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="tag">FAST • FRESH • DELICIOUS</p>
+            <h1>
+                Your Favorite Food,
+                <span>Delivered Fast.</span>
+            </h1>
+            <p class="description">
+                Discover delicious food from your favorite restaurants
+                and get it delivered straight to your doorstep. </p>
+            <div class="hero-buttons">
+                <a href="open_signup" class="primary-btn"> Order Now 🍕</a>
+                <a href="open_signin" class="secondary-btn"> Explore Food →</a>
+            </div>
+        </div>
+
+
+        <!-- Food Card -->
+        <div class="food-card">
+            <div class="food-icon">🍔</div>
+            <div class="food-details">
+                <h3>Delicious Burger</h3>
+                <p>Fresh & Hot</p>
+                <div class="rating">
+                    ⭐ ⭐ ⭐ ⭐ ⭐
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🍽️</div>
+            <h3>Best Restaurants</h3>
+            <p>
+                Choose from a variety of restaurants and cuisines.
+            </p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Fast Delivery</h3>
+            <p>
+                Get your favorite meals delivered quickly.
+            </p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">😊</div>
+            <h3>Easy Ordering</h3>
+            <p>
+                Order food easily with just a few clicks.
+            </p>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+             Hury<span>Hungr</span>
+        </div>
+        <p>
+            © 2026 HuryHungr. Made with ❤️ for food lovers.
+        </p>
+    </footer>
 </body>
 </html>

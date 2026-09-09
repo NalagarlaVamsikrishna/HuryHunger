@@ -1,43 +1,116 @@
+{% load static %}
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Menu Page</title>
+    <title>HuryHunger | Menu</title>
+    <link rel="stylesheet" href="{% static 'view_menu.css' %}">
 </head>
 <body>
-    <h1>Welcome {{username}}</h1>
-    <a href="{% url 'show_cart' username %}">Go to cart</a>
-    
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Is Veg</th>
-                <th>Price</th>
-                <th>Picture</th>
-                <th>Operation</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for i in itemList %}
-            <tr>
-                <td>{{ i.name }}</td>
-                <td>{{ i.description }}</td>
-                <td>{{ i.vegeterian }}</td>
-                <td>{{ i.price }}</td>
-                <td> 
-                    <img src="{{ i.picture }}" style="width: 150px; height: 150px; object-fit: fill;">
-                </td>
-                <td>
-                    <a href="{% url 'add_to_cart' i.id username %}">
-                        Add To Cart
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="#" class="logo">
+         Hury<span>Hungr</span>
+    </a>
+    <div class="nav-right">
+        <div class="welcome">
+            <span>Welcome,</span>
+            <strong>{{ username }}</strong>
+        </div>
+        <a href="{% url 'show_cart' username %}" class="cart-btn">
+            🛒 Go to Cart
+        </a>
+    </div>
+</nav>
+<!-- PAGE HEADER -->
+<section class="menu-header">
+    <p class="menu-tag">
+        🍴 RESTAURANT MENU
+    </p>
+    <h1>
+        Choose Your <span>Favorite Food</span>
+    </h1>
+    <p>
+        Freshly prepared and delicious food waiting for you.
+    </p>
+</section>
+<!-- MENU SECTION -->
+<section class="menu-section">
+    <div class="section-title">
+        <h2>Our Delicious Menu</h2>
+        <p>
+            Explore and add your favorite dishes to your cart.
+        </p>
+    </div>
+    <!-- FOOD GRID -->
+    <div class="food-grid">
+        {% for i in itemList %}
+        <div class="food-card">
+            <!-- FOOD IMAGE -->
+            <div class="food-image">
+                <img
+                    src="{{ i.picture }}"
+                    alt="{{ i.name }}"
+                >
+                <!-- VEG / NON VEG -->
+                {% if i.vegeterian %}
+                <span class="food-type veg">
+                    ● VEG
+                </span>
+                {% else %}
+                <span class="food-type non-veg">
+                    ● NON-VEG
+                </span>
+                {% endif %}
+            </div>
+            <!-- FOOD DETAILS -->
+            <div class="food-info">
+                <h3>
+                    {{ i.name }}
+                </h3>
+                <p class="description">
+                    {{ i.description }}
+                </p>
+                <div class="food-bottom">
+                    <div class="price">
+                        ₹{{ i.price }}
+                    </div>
+                    <a
+                        href="{% url 'add_to_cart' i.id username %}"
+                        class="add-btn">
+                    + Add
                     </a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="no-items">
+            <div class="empty-icon">
+                🍽️
+            </div>
+            <h3>
+                No Items Available
+            </h3>
+            <p>
+                This restaurant has not added menu items yet.
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-logo">
+         Hury<span>Hungr</span>
+    </div>
+    <p>
+        © 2026 HuryHungr. Enjoy every bite ❤️
+    </p>
+</footer>
 </body>
 </html>

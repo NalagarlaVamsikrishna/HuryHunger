@@ -1,22 +1,166 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-    <form action="{% url 'signin' %}" method="POST">
-        {% csrf_token %}
-        <label for="username">Username: </label>
-        <input type="text" name="username" placeholder="Enter user username"> <br>
+<title>HuryHunger | Sign In</title>
 
-        <label for="password">Password: </label>
-        <input type="password" name="password" placeholder="Enter password"> <br>
-        
-        <button type="submit">Sign In</button>
-    </form>
+<link rel="stylesheet" href="{% static 'signin.css' %}">
+
+</head>
+
+<body>
+<div class="auth-container">
+
+
+    <!-- LEFT SIDE -->
+
+    <div class="auth-brand">
+
+        <a href="/" class="logo">
+            🍽️ Hury<span>Hungr</span>
+        </a>
+        <div class="brand-content">
+            <p class="brand-tag">
+                DELICIOUS FOOD, DELIVERED
+            </p>
+
+            <h1>
+                Welcome Back!
+            </h1>
+
+            <p>
+                Sign in to explore restaurants, discover your
+                favorite dishes, and enjoy a smooth food ordering
+                experience.
+            </p>
+
+
+            <div class="food-icons">
+
+                <span>🍕</span>
+                <span>🍜</span>
+                <span>🥗</span>
+                <span>🍛</span>
+                <span>🍰</span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="auth-form-section">
+
+
+        <div class="form-container">
+
+
+            <div class="form-header">
+
+                <p>WELCOME BACK</p>
+
+                <h2>
+                    Sign in to your account
+                </h2>
+
+                <span>
+                    Enter your details to continue ordering.
+                </span>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form
+                action="{% url 'signin' %}"
+                method="POST"
+            >
+
+                {% csrf_token %}
+
+
+                <!-- USERNAME -->
+
+                <div class="input-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="signin-btn"
+                >
+                    Sign In →
+                </button>
+
+
+            </form>
+
+
+            <!-- SIGN UP -->
+
+            <div class="signup-link">
+
+                <p>
+                    Don't have an account?
+                </p>
+
+                <a href="open_signup">
+                    Create Account
+                </a>
+
+            </div>
+
+
+            <!-- BACK -->
+
+            <a href="/" class="back-home">
+                ← Back to Home
+            </a>
+        </div>
+
+    </div>
+
+</div>
 </body>
 </html>

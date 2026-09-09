@@ -1,13 +1,158 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin home</title>
+<title>HuryHunger | Admin Dashboard</title>
+<link rel="stylesheet" href="{% static 'admin_home.css' %}">
 </head>
 <body>
-    <h1>Admin Sign In Successfully.</h1>
-    <a href="open_add_restaurant"> Add New Restaurant</a> <br>
-    <a href="open_show_restaurant"> Show Restaurant </a>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="/" class="logo">
+        🍽️ Hury<span>Hungr</span>
+    </a>
+    <div class="admin-profile">
+        <div class="profile-icon">
+            A
+        </div>
+        <div class="profile-info">
+            <strong>Administrator</strong>
+            <span>Admin Panel</span>
+        </div>
+    </div>
+</nav>
+<!-- DASHBOARD -->
+<main class="dashboard">
+    <!-- WELCOME -->
+    <section class="welcome-section">
+        <div>
+            <p class="dashboard-tag">
+                ADMIN DASHBOARD
+            </p>
+            <h1>
+                Welcome Back, <span>Admin!</span>
+            </h1>
+            <p class="welcome-text">
+                Manage restaurants and keep your HuryHunger
+                food delivery platform running smoothly.
+            </p>
+        </div>
+    </section>
+    <!-- QUICK STATS -->
+    <section class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon restaurant-icon">
+                🍽️
+            </div>
+            <div>
+                <p>Restaurants</p>
+                <h2>Manage</h2>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon food-icon">
+                🍴
+            </div>
+            <div>
+                <p>Food & Menu</p>
+                <h2>Manage</h2>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon order-icon">
+                📦
+            </div>
+            <div>
+                <p>Orders</p>
+                <h2>Monitor</h2>
+            </div>
+        </div>
+    </section>
+    <!-- MANAGEMENT -->
+    <section class="management-section">
+        <div class="section-heading">
+            <p class="section-tag">
+                MANAGEMENT
+            </p>
+            <h2>
+                Restaurant Management
+            </h2>
+            <p>
+                Add new restaurants or view and manage existing
+                restaurants on HuryHunger.
+            </p>
+        </div>
+        <div class="management-grid">
+            <!-- ADD RESTAURANT -->
+            <div class="management-card">
+                <div class="card-icon add-icon">
+                    +
+                </div>
+                <div class="card-content">
+                    <h3>
+                        Add New Restaurant
+                    </h3>
+                    <p>
+                        Register a new restaurant and add it
+                        to the HuryHunger platform.
+                    </p>
+                    <a
+                        href="open_add_restaurant"
+                        class="primary-btn"
+                    >
+                        Add Restaurant →
+                    </a>
+                </div>
+            </div>
+            <!-- SHOW RESTAURANTS -->
+            <div class="management-card">
+                <div class="card-icon view-icon">
+                    👁
+                </div>
+                <div class="card-content">
+                    <h3>
+                        View Restaurants
+                    </h3>
+                    <p>
+                        View your registered restaurants and
+                        manage their information.
+                    </p>
+                    <a
+                        href="open_show_restaurant"
+                        class="secondary-btn"
+                    >
+                        View Restaurants →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- INFO -->
+    <section class="info-banner">
+        <div class="info-icon">
+            💡
+        </div>
+        <div>
+            <h3>
+                HuryHungr Admin Panel
+            </h3>
+            <p>
+                Use this dashboard to manage restaurants and
+                maintain your food delivery platform.
+            </p>
+        </div>
+    </section>
+</main>
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">
+        🍽️ Hury<span>Hungr</span>
+    </div>
+    <p>
+        © 2026 HuryHungr Admin Panel
+    </p>
+</footer>
 </body>
 </html>

@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+font-family: Arial, sans-serif;
+background-color: #fffaf6;
+color: #222;
+}
+
+.auth-container {
+min-height: 100vh;
+display: grid;
+grid-template-columns: 1fr 1.2fr;
+}
+
+/* LEFT BRAND SECTION */
+
+.auth-brand {
+background-color: #ff5a36;
+color: white;
+padding: 45px 10%;
+display: flex;
+flex-direction: column;
+position: sticky;
+top: 0;
+height: 100vh;
+}
+
+.logo {
+text-decoration: none;
+color: white;
+font-size: 28px;
+font-weight: bold;
+}
+
+.logo span {
+color: #ffe6dc;
+}
+
+.brand-content {
+margin: auto 0;
+max-width: 500px;
+}
+
+.brand-tag {
+font-size: 12px;
+font-weight: bold;
+letter-spacing: 2px;
+margin-bottom: 20px;
+opacity: 0.9;
+}
+
+.brand-content h1 {
+font-size: 48px;
+margin-bottom: 20px;
+}
+
+.brand-content p {
+font-size: 16px;
+line-height: 1.7;
+color: #fff5f1;
+}
+
+.food-icons {
+margin-top: 35px;
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+}
+
+.food-icons span {
+width: 52px;
+height: 52px;
+background-color: rgba(255, 255, 255, 0.15);
+border-radius: 14px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 25px;
+}
+
+/* RIGHT FORM SECTION */
+
+.auth-form-section {
+background-color: white;
+display: flex;
+justify-content: center;
+padding: 55px 40px;
+}
+
+.form-container {
+width: 100%;
+max-width: 450px;
+}
+
+.form-header {
+margin-bottom: 30px;
+}
+
+.form-header p {
+color: #ff5a36;
+font-size: 12px;
+font-weight: bold;
+letter-spacing: 1.5px;
+margin-bottom: 10px;
+}
+
+.form-header h2 {
+font-size: 30px;
+margin-bottom: 10px;
+}
+
+.form-header span {
+color: #777;
+font-size: 14px;
+}
+
+/* FORM INPUTS */
+
+.input-group {
+margin-bottom: 18px;
+}
+
+.input-group label {
+display: block;
+font-size: 13px;
+font-weight: bold;
+margin-bottom: 7px;
+}
+
+.input-group input,
+.input-group textarea {
+width: 100%;
+border: 1px solid #ddd;
+border-radius: 10px;
+padding: 13px 14px;
+font-size: 14px;
+outline: none;
+font-family: Arial, sans-serif;
+transition: 0.3s;
+}
+
+.input-group textarea {
+min-height: 90px;
+resize: vertical;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+border-color: #ff5a36;
+box-shadow: 0 0 0 3px rgba(255, 90, 54, 0.1);
+}
+
+/* SIGN UP BUTTON */
+
+.signup-btn {
+width: 100%;
+border: none;
+background-color: #ff5a36;
+color: white;
+padding: 15px;
+border-radius: 10px;
+font-size: 15px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.signup-btn:hover {
+background-color: #e74624;
+transform: translateY(-2px);
+}
+
+/* SIGN IN LINK */
+
+.signin-link {
+display: flex;
+justify-content: center;
+gap: 6px;
+margin-top: 25px;
+font-size: 13px;
+color: #777;
+}
+
+.signin-link a {
+color: #ff5a36;
+text-decoration: none;
+font-weight: bold;
+}
+
+.back-home {
+display: block;
+text-align: center;
+margin-top: 22px;
+color: #777;
+font-size: 13px;
+text-decoration: none;
+}
+
+.back-home:hover {
+color: #ff5a36;
+}
+
+/* TABLET */
+
+@media screen and (max-width: 850px) {
+.auth-container {
+    grid-template-columns: 1fr;
+}
+
+.auth-brand {
+    position: static;
+    height: auto;
+    min-height: 300px;
+    padding: 40px 8%;
+}
+
+.brand-content {
+    margin-top: 50px;
+}
+
+.auth-form-section {
+    padding: 50px 25px;
+}
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 500px) {
+.auth-brand {
+    min-height: 260px;
+}
+
+.brand-content h1 {
+    font-size: 34px;
+}
+
+.brand-content p {
+    font-size: 14px;
+}
+
+.food-icons {
+    display: none;
+}
+
+.auth-form-section {
+    padding: 40px 20px;
+}
+
+.form-header h2 {
+    font-size: 25px;
+}
+
+.signin-link {
+    flex-direction: column;
+    align-items: center;
+}
+
+}

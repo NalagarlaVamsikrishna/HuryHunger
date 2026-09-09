@@ -1,22 +1,160 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orders page</title>
+<title>HuryHunger | Order Confirmed</title>
+<link rel="stylesheet" href="{% static 'orders.css' %}">
 </head>
 <body>
-    
-    <h1>Thank you for your order, {{username}}</h1>
-    <h2>Delivery Address</h2>
-    <p>{{customer.address}}</p>
+<!-- NAVBAR -->
+<nav class="navbar">
 
-    <p>Your order will be delivered to this location shortly. Thank you for choosing huryhungr.</p>
-    {% if cart_items %}
-        <a href="{% url 'customer_menu' cart_items.0.restaurant.id username %}">Back to Restaurants</a>
-    {% else %}
-    <a href="/">Back to Home</a>
-    {% endif %}
+    <a href="/" class="logo">
+        🍽️ Hury<span>Hungr</span>
+    </a>
 
+    <div class="nav-user">
+        <span>Customer</span>
+        <strong>{{ username }}</strong>
+    </div>
+
+</nav>
+
+
+<!-- CONFIRMATION SECTION -->
+
+<main class="confirmation-section">
+
+
+    <div class="confirmation-card">
+
+
+        <!-- SUCCESS ICON -->
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <p class="success-tag">
+            ORDER CONFIRMED
+        </p>
+        <h1>
+            Thank You, <span>{{ username }}</span>!
+        </h1>
+        <p class="confirmation-text">
+            Your order has been successfully placed.
+            We're preparing your delicious food and will get it
+            ready for delivery.
+        </p>
+        <!-- ORDER STATUS -->
+        <div class="status-container">
+            <h2>
+                Your Order Status
+            </h2>
+            <div class="status-steps">
+                <div class="status-step active">
+                    <div class="status-circle">
+                        ✓
+                    </div>
+                    <div class="status-text">
+                        <h3>Order Placed</h3>
+                        <p>We received your order</p>
+                    </div>
+                </div>
+                <div class="status-line"></div>
+                <div class="status-step">
+                    <div class="status-circle">
+                        🍳
+                    </div>
+                    <div class="status-text">
+                        <h3>Preparing</h3>
+                        <p>Your food will be prepared soon</p>
+                    </div>
+                </div>
+                <div class="status-line"></div>
+                <div class="status-step">
+                    <div class="status-circle">
+                        🚚
+                    </div>
+                    <div class="status-text">
+                        <h3>On the Way</h3>
+                        <p>Heading to your location</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- DELIVERY ADDRESS -->
+        <div class="address-card">
+            <div class="address-icon">
+                📍
+            </div>
+            <div>
+                <p class="address-label">
+                    DELIVERY ADDRESS
+                </p>
+                <h3>
+                    {{ customer.address }}
+                </h3>
+                <p class="address-text">
+                    Your order will be delivered to this location shortly.
+                </p>
+            </div>
+        </div>
+        <!-- ACTION BUTTON -->
+        <div class="action-buttons">
+            {% if cart_items %}
+            <a
+                href="{% url 'customer_menu' cart_items.0.restaurant.id username %}"
+                class="primary-btn"
+            >
+                Continue Ordering →
+            </a>
+
+
+            {% else %}
+
+            <a
+                href="/"
+                class="primary-btn"
+            >
+                Back to Home →
+            </a>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        <p class="thank-you">
+
+            Thank you for choosing HuryHunger ❤️
+
+        </p>
+
+
+    </div>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        🍽️ Hury<span>Hungr</span>
+    </div>
+
+    <p>
+        © 2026 HuryHungr. Good food, delivered with care.
+    </p>
+
+</footer>
 </body>
 </html>

@@ -1,37 +1,138 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart Page</title>
+    <title>HuryHunger | Cart</title>
+    <link rel="stylesheet" href="{% static 'show_cart.css' %}">
 </head>
 <body>
-    <h3>Hyy Your items here</h3>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="#" class="logo">
+         Hury<span>Hungr</span>
+    </a>
+    <div class="welcome">
+        <span>Your Cart</span>
+        <strong>{{ username }}</strong>
+    </div>
+</nav>
+<!-- PAGE HEADER -->
+<section class="cart-header">
+    <p>🛒 YOUR FOOD CART</p>
+    <h1>
+        Almost There! <span>Let's Eat.</span>
+    </h1>
+    <p class="header-description">
+        Review your delicious items before checkout.
+    </p>
+</section>
+<!-- CART SECTION -->
+<section class="cart-section">
+    <div class="cart-container">
+        <!-- CART ITEMS -->
+        <div class="cart-items">
+            <div class="cart-title">
+                <h2>Your Items</h2>
+                <span>
+                    {{ itemList|length }} Item{{ itemList|length|pluralize }}
+                </span>
+            </div>
             {% for i in itemList %}
-            <tr>
-                <td>
-                    <img src="{{ i.picture }}" style="width: 150px; height: 150px; object-fit: fill;">
-                </td>
-                <td>{{ i.name }}</td>
-                <td>{{ i.description }}</td>
-                <td>{{ i.price }}</td>
-            </tr>
+            <div class="cart-item">
+                <!-- IMAGE -->
+                <div class="item-image">
+                    <img
+                        src="{{ i.picture }}"
+                        alt="{{ i.name }}"
+                    >
+                </div>
+                <!-- DETAILS -->
+                <div class="item-details">
+                    <h3>
+                        {{ i.name }}
+                    </h3>
+                    <p>
+                        {{ i.description }}
+                    </p>
+                </div>
+                <!-- PRICE -->
+                <div class="item-price">
+                    ₹{{ i.price }}
+                </div>
+            </div>
+            {% empty %}
+            <div class="empty-cart">
+                <div class="empty-icon">
+                    🛒
+                </div>
+                <h3>Your Cart is Empty</h3>
+                <p>
+                    Add some delicious food to get started!
+                </p>
+            </div>
             {% endfor %}
-        </tbody>
-        <h2>Total price: {{total_price}}</h2>
-        <form action="{% url 'check_out' username %}">
-            <input type="submit" value="CHECK OUT">
-        </form>
-    </table>
+        </div>
+        <!-- ORDER SUMMARY -->
+        <div class="order-summary">
+
+            <h2>Order Summary</h2>
+            <div class="summary-row">
+                <span>Items Total</span>
+                <strong>
+                    ₹{{ total_price }}
+                </strong>
+            </div>
+            <div class="summary-row">
+                <span>Delivery</span>
+                <strong class="free">
+                    FREE
+                </strong>
+            </div>
+            <div class="summary-line"></div>
+            <div class="total-row">
+                <span>Total Amount</span>
+                <strong>
+                    ₹{{ total_price }}
+                </strong>
+            </div>
+            <!-- CHECKOUT -->
+            {% if itemList %}
+            <form
+                action="{% url 'check_out' username %}"
+                method="get"
+            >
+                <button
+                    type="submit"
+                    class="checkout-btn"
+                >
+                    Proceed to Checkout →
+                </button>
+            </form>
+            {% else %}
+            <button
+                class="checkout-btn disabled"
+                disabled
+            >
+                Add Items to Checkout
+            </button>
+
+            {% endif %}
+            <p class="secure-text">
+                🔒 Secure and easy checkout
+            </p>
+        </div>
+    </div>
+</section>
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">
+         Hury<span>Hungr</span>
+    </div>
+    <p>
+        © 2026 HuryHungr. Enjoy your meal ❤️
+    </p>
+</footer>
 </body>
 </html>

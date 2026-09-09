@@ -1,69 +1,172 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check out Page</title>
+    <title>HuryHunger | Checkout</title>
+    <link rel="stylesheet" href="{% static 'checkout.css' %}">
+    <!-- Razorpay -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
-    <h1>Checkout</h1>
-    <h2>Welcome, {{username}}</h2>
-
-    {% if error %}
-    <p>{{ error }}</p>
-
-    {% else %}
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for i in cart_items %}
-            <tr>
-                <td>{{ i.name }}</td>
-                <td>{{ i.price }}</td>
-            </tr>
-            {% endfor%}
-        </tbody>
-    </table>
-    <h1>Total: ₹{{ total_price }}</h1>
-
-    <button id="rzp-button">Pay with Razorpay</button>
-    {% endif %}
-
-    <script>
-        var options = {
-            "key": "{{ razorpay_key_id }}",  // Razorpay API key
-            "amount": "{{ amount_paise }}00", // Amount in paisa
-            "currency": "INR",
-            "name": "Meal Buddy",
-            "description": "Order Payment",
-            "order_id": "{{ order_id }}",  // Razorpay order ID
-            "handler": function (response) {
-                alert("Payment Successful!");
-                // Redirect to the orders page
-                window.location.href = "{% url 'orders' username %}";
-            },
-            "prefill": {
-                "name": "{{ username }}",
-                "email": "customer@example.com",
-                "contact": "9999999999"
-            },
-            "theme": {
-                "color": "#528FF0"
-            }
-        };
-        var rzp = new Razorpay(options);
-    
-        document.getElementById('rzp-button').onclick = function(e) {
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="#" class="logo">
+        🍽️ Hury<span>Hunger</span>
+    </a>
+    <div class="welcome">
+        <span>Checkout for</span>
+        <strong>{{ username }}</strong>
+    </div>
+</nav>
+<!-- PAGE HEADER -->
+<section class="checkout-header">
+    <p class="checkout-tag">
+        SECURE CHECKOUT
+    </p>
+    <h1>
+        Complete Your <span>Order</span>
+    </h1>
+    <p>
+        Review your order and complete your payment securely.
+    </p>
+</section>
+<!-- ERROR -->
+{% if error %}
+<section class="error-section">
+    <div class="error-card">
+        <div class="error-icon">
+            ⚠️
+        </div>
+        <h2>Something Went Wrong</h2>
+        <p>{{ error }}</p>
+    </div>
+</section>
+{% else %}
+<!-- CHECKOUT SECTION -->
+<section class="checkout-section">
+    <div class="checkout-container">
+        <!-- ORDER ITEMS -->
+        <div class="order-details">
+            <div class="section-heading">
+                <div>
+                    <p class="small-tag">
+                        YOUR ORDER
+                    </p>
+                    <h2>
+                        Order Details
+                    </h2>
+                </div>
+                <span class="item-count">
+                    {{ cart_items|length }}
+                    Item{{ cart_items|length|pluralize }}
+                </span>
+            </div>
+            <!-- ITEMS -->
+            <div class="order-items">
+                {% for i in cart_items %}
+                <div class="order-item">
+                    <div class="item-icon">
+                        🍽️
+                    </div>
+                    <div class="item-info">
+                        <h3>
+                            {{ i.name }}
+                        </h3>
+                        <p>
+                            Freshly prepared and added to your order
+                        </p>
+                    </div>
+                    <div class="item-price">
+                        ₹{{ i.price }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- PAYMENT SUMMARY -->
+        <div class="payment-card">
+            <h2>
+                Payment Summary
+            </h2>
+            <div class="summary-row">
+                <span>Items Total</span>
+                <strong>
+                    ₹{{ total_price }}
+                </strong>
+            </div>
+            <div class="summary-row">
+                <span>Delivery Fee</span>
+                <strong class="free">
+                    FREE
+                </strong>
+            </div>
+            <div class="summary-line"></div>
+            <div class="total-row">
+                <span>Total Amount</span>
+                <strong>
+                    ₹{{ total_price }}
+                </strong>
+            </div>
+            <!-- PAYMENT BUTTON -->
+            <button
+                id="rzp-button"
+                class="payment-btn"
+            >
+                🔒 Pay ₹{{ total_price }}
+            </button>
+            <p class="secure-text">
+                🔐 Secure payment powered by Razorpay
+            </p>
+            <div class="payment-info">
+                <span>💳 Cards</span>
+                <span>📱 UPI</span>
+                <span>🏦 Net Banking</span>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">
+        🍽️ Hury<span>Hunger</span>
+    </div>
+    <p>
+        © 2026 HuryHunger. Delicious food delivered with care ❤️
+    </p>
+</footer>
+<!-- RAZORPAY SCRIPT -->
+{% if not error %}
+<script>
+    var options = {
+        "key": "{{ razorpay_key_id }}",
+        "amount": "{{ amount_paise }}",
+        "currency": "INR",
+        "name": "HuryHungr",
+        "description": "Food Order Payment",
+        "order_id": "{{ order_id }}",
+        "handler": function (response) {
+            alert("Payment Successful!");
+            window.location.href =
+                "{% url 'orders' username %}";
+        },
+        "prefill": {
+            "name": "{{ username }}",
+            "email": "customer@example.com",
+            "contact": "9999999999"
+        },
+        "theme": {
+            "color": "#ff5a36"
+        }
+    };
+    var rzp = new Razorpay(options);
+    document.getElementById("rzp-button").onclick = function (e) {
             rzp.open();
             e.preventDefault();
-        }
-    </script>
-
+            };
+</script>
+{% endif %}
 </body>
 </html>

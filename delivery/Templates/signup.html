@@ -1,32 +1,296 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-     {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HuryHunger | Sign Up</title>
+<link rel="stylesheet" href="{% static 'signup.css' %}">
 </head>
+
 <body>
-    <form action="{% url 'signup' %}" method="POST">
-        {% csrf_token %}
-        <label for="username">User Name: </label>
-        <input type="text" name="username" id="username"> <br>
+<div class="auth-container">
 
-        <label for="password">Password: </label>
-        <input type="password" name="password" id="password"> <br>
 
-        <label for="email">Email: </label>
-        <input type="email" name="email" id="email"> <br>
+    <!-- LEFT BRAND SECTION -->
 
-        <label for="mobile">Mobile: </label>
-        <input type="number" name="mobile" id="mobile"> <br>
+    <div class="auth-brand">
 
-        <label for="address">Address: </label>
-        <textarea type="text" name="address" id="address"></textarea> <br>
 
-        <button type="submit">Sign Up</button>
-    </form>
+        <a href="/" class="logo">
 
+            🍽️ Hury<span>Hungr</span>
+
+        </a>
+
+
+        <div class="brand-content">
+
+
+            <p class="brand-tag">
+
+                YOUR FOOD JOURNEY STARTS HERE
+
+            </p>
+
+
+            <h1>
+
+                Join HuryHunger!
+
+            </h1>
+
+
+            <p>
+
+                Create your account and explore a variety of
+                restaurants, cuisines, meals, snacks, desserts,
+                and much more.
+
+            </p>
+
+
+            <div class="food-icons">
+
+                <span>🍕</span>
+
+                <span>🍜</span>
+
+                <span>🍛</span>
+
+                <span>🥗</span>
+
+                <span>🍰</span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- RIGHT FORM SECTION -->
+
+    <div class="auth-form-section">
+
+
+        <div class="form-container">
+
+
+            <div class="form-header">
+
+
+                <p>
+
+                    CREATE ACCOUNT
+
+                </p>
+
+
+                <h2>
+
+                    Get started today
+
+                </h2>
+
+
+                <span>
+
+                    Fill in your details to create your account.
+
+                </span>
+
+
+            </div>
+
+
+            <!-- SIGN UP FORM -->
+
+            <form
+                action="{% url 'signup' %}"
+                method="POST"
+            >
+
+
+                {% csrf_token %}
+
+
+                <!-- USERNAME -->
+
+                <div class="input-group">
+
+
+                    <label for="username">
+
+                        Username
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+
+                    <label for="password">
+
+                        Password
+
+                    </label>
+
+
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+
+                    <label for="email">
+
+                        Email Address
+
+                    </label>
+
+
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+
+                </div>
+
+
+                <!-- MOBILE -->
+
+                <div class="input-group">
+
+
+                    <label for="mobile">
+
+                        Mobile Number
+
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        name="mobile"
+                        id="mobile"
+                        placeholder="Enter your mobile number"
+                        required
+                    >
+
+
+                </div>
+
+
+                <!-- ADDRESS -->
+
+                <div class="input-group">
+
+
+                    <label for="address">
+
+                        Delivery Address
+
+                    </label>
+
+
+                    <textarea
+                        name="address"
+                        id="address"
+                        placeholder="Enter your delivery address"
+                        required
+                    ></textarea>
+
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="signup-btn"
+                >
+
+                    Create Account →
+
+                </button>
+
+
+            </form>
+
+
+            <!-- SIGN IN LINK -->
+
+            <div class="signin-link">
+
+
+                <p>
+
+                    Already have an account?
+
+                </p>
+
+
+                <a href="open_signin">
+
+                    Sign In
+
+                </a>
+
+
+            </div>
+
+
+            <!-- HOME -->
+
+            <a
+                href="/"
+                class="back-home"
+            >
+
+                ← Back to Home
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</div>
 </body>
+
 </html>

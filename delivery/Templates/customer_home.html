@@ -1,41 +1,111 @@
+{% load static %}
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Page</title>
+
+<title>HuryHunger | Restaurants</title>
+<link rel="stylesheet" href="{% static 'customer_home.css' %}">
+
 </head>
 <body>
-    <h1>Welcome {{username}} something waiting for you</h1>
-
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Picture</th>
-                <th>Restaurant Name</th>
-                <th>Cuisine</th>
-                <th>Rating</th>
-                <th>Operation</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for r in restaurantList %}
-            <tr>
-                <td>
-                    <img src="{{ r.picture }}" style="width: 300px; height: 200px; object-fit: fill;">
-                </td>
-                <td>{{ r.name }}</td>
-                <td>{{ r.cuisine }}</td>
-                <td>{{ r.rating }}</td>
-                <td>
-                    <a href="{% url 'view_menu' r.id username %}">
-                        View Menu
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <a href="#" class="logo">
+         Hury<span>Hungr</span>
+    </a>
+    <div class="nav-right">
+        <div class="welcome">
+            <span class="hello">Hello,</span>
+            <strong>{{ username }}</strong>
+        </div>
+        <a href="#" class="cart-btn">
+            🛒 Cart
+        </a>
+    </div>
+</nav>
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-content">
+        <p class="tagline">
+            🍴 DISCOVER AMAZING FOOD
+        </p>
+        <h1>
+            What are you
+            <span>craving today?</span>
+        </h1>
+        <p>
+            Explore delicious food from the best restaurants
+            and get your favorite meals delivered to your doorstep.
+        </p>
+    </div>
+</section>
+<!-- ================= RESTAURANTS ================= -->
+<section class="restaurants-section">
+    <div class="section-header">
+        <div>
+            <p class="section-tag">
+                RESTAURANTS
+            </p>
+            <h2>Popular Restaurants Near You</h2>
+        </div>
+    </div>
+    <!-- Restaurant Grid -->
+    <div class="restaurant-grid">
+        {% for r in restaurantList %}
+        <div class="restaurant-card">
+            <!-- Restaurant Image -->
+            <div class="image-container">
+                <img src="{{ r.picture }}" alt="{{ r.name }}">
+                <div class="rating">
+                    ⭐ {{ r.rating }}
+                </div>
+            </div>
+            <!-- Restaurant Details -->
+            <div class="restaurant-info">
+                <h3>
+                    {{ r.name }}
+                </h3>
+                <p class="cuisine">
+                    🍽️ {{ r.cuisine }}
+                </p>
+                <div class="card-footer">
+                    <span class="delivery-time">
+                        🕒 Fast Delivery
+                    </span>
+                    <a href="{% url 'view_menu' r.id username %}" class="menu-btn">
+                        View Menu →
                     </a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="no-restaurants">
+            <div class="empty-icon">
+                🍽️
+            </div>
+            <h3>
+                No Restaurants Available
+            </h3>
+            <p>
+                Please check back later for delicious options!
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!-- ================= FOOTER ================= -->
+<footer>
+    <div class="footer-logo">
+         Hury<span>Hungr</span>
+    </div>
+    <p>
+        © 2026 HuryHungr. Delicious food, delivered with ❤️
+    </p>
+</footer>
 </body>
 </html>
